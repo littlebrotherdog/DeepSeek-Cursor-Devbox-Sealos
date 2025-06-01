@@ -52,7 +52,7 @@ DeepSeek-Cursor-Devbox-Sealos/
 ├── package.json # 项目依赖配置
 ├── vite.config.js # Vite 配置文件
 └── entrypoint.sh # 启动脚本
-
+```
 
 ## 📚 参考资料
 

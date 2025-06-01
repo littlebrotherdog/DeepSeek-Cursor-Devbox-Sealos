@@ -44,7 +44,7 @@
 - **部署平台**：Sealos
 
 ## 📁 项目结构
-
+```text
 DeepSeek-Cursor-Devbox-Sealos/
 ├── springboot/ # 后端代码
 ├── src/ # 前端源码

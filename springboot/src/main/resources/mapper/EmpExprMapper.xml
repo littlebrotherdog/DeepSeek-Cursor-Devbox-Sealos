@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.hello.mapper.EmpExprMapper">
+
+    <resultMap id="EmpExprResultMap" type="com.example.hello.entity.EmpExpr">
+        <id property="id" column="id"/>
+        <result property="empId" column="emp_id"/>
+        <result property="company" column="company"/>
+        <result property="position" column="position"/>
+        <result property="startDate" column="start_date"/>
+        <result property="endDate" column="end_date"/>
+    </resultMap>
+
+    <select id="selectByEmpId" resultMap="EmpExprResultMap">
+        SELECT * FROM emp_expr WHERE emp_id = #{empId} ORDER BY id ASC
+    </select>
+
+    <insert id="insertBatch">
+        INSERT INTO emp_expr (emp_id, company, position, start_date, end_date)
+        VALUES
+        <foreach collection="exprList" item="expr" separator=",">
+            (#{expr.empId}, #{expr.company}, #{expr.position}, #{expr.startDate}, #{expr.endDate})
+        </foreach>
+    </insert>
+
+    <delete id="deleteByEmpId">
+        DELETE FROM emp_expr WHERE emp_id = #{empId}
+    </delete>
+
+    <delete id="deleteByEmpIds">
+        DELETE FROM emp_expr WHERE emp_id IN
+        <foreach collection="ids" item="id" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+
+</mapper> 

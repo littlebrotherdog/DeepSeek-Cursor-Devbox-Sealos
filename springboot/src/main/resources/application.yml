@@ -1,0 +1,24 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://test-db-mysql.ns-a7nc3xa9.svc:3306/zxyf?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&useSSL=false
+    username: root
+    password: blvmrszv
+
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  mapper-locations: classpath:mapper/*.xml
+
+pagehelper:
+  helper-dialect: mysql
+  reasonable: true
+  support-methods-arguments: true
+
+minio:
+  endpoint: http://objectstorageapi.hzh.sealos.run
+  access-key: a7nc3xa9
+  secret-key: q6kghfnt7d8ft9dd
+  bucket: a7nc3xa9-zxyf
+  public-url-prefix: http://objectstorageapi.hzh.sealos.run/a7nc3xa9-zxyf/ 
